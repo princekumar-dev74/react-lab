@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Just For You</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(220,240,255,.9), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(200,230,255,.8), transparent 55%),
+    linear-gradient(to bottom, #ffffff, #edf6fa);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* SNOW */
+.snow-stars{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:10;
+}
+
+.snow-stars span{
+  position:absolute;
+  top:-10%;
+  color:rgba(138,201,255,.9);
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  to{ transform:translateY(120vh); }
+}
+
+/* MAIN CARD (smaller width) */
+.main-card{
+  width:85%;
+  max-width:520px;
+  padding:30px 20px;
+  border-radius:22px;
+
+  /* Glass effect */
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.08)
+  );
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  box-shadow:
+    0 25px 60px rgba(120, 200, 255, 0.35),
+    inset 0 1px 1px rgba(255,255,255,0.6);
+
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.main-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,0.5),
+    transparent 70%
+  );
+  opacity:0.25;
+  pointer-events:none;
+}
+.main-card:hover{
+  box-shadow:
+    0 35px 80px rgba(120, 200, 255, 0.45),
+    inset 0 1px 1px rgba(255,255,255,0.7);
+}
+
+
+.main-card h1{
+  font-family:'Allura', cursive;
+  font-size:42px;
+  margin-bottom:25px;
+  color:#2b4a6f;
+   text-shadow: 0 2px 8px rgba(255,255,255,0.6);
+}
+
+h3{
+  font-size:18px;
+  margin-bottom:30px;
+  color:#3a5a80;
+  margin-top: -30px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+/* GRID: 3 top, 2 bottom */
+.card-row{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:15px;
+  justify-items:center;
+}
+
+/* FLIP CARD */
+.flip-card{
+  width:110px;
+  height:145px;
+  perspective:1000px;
+  cursor:pointer;
+}
+
+/* permanent tilt */
+.flip-card:nth-child(1){ transform:rotate(-6deg); }
+.flip-card:nth-child(2){ transform:rotate(4deg); }
+.flip-card:nth-child(3){ transform:rotate(-3deg); }
+.flip-card:nth-child(4){ transform:rotate(5deg); }
+.flip-card:nth-child(5){ transform:rotate(-4deg); }
+.flip-card:nth-child(6){ transform:rotate(3deg); }
+
+.flip-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transition:transform .7s ease;
+  transform-style:preserve-3d;
+}
+
+.flip-card.active .flip-inner{
+  transform:rotateY(180deg);
+}
+
+.flip-front,
+.flip-back{
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+  border-radius:10px;
+  overflow:hidden;
+  background:#ffffff;
+  padding:6px;
+  box-shadow:0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.flip-front img,
+.flip-back img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.flip-back{
+  transform:rotateY(180deg);
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .card-row{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="snow-stars"></div>
+
+<div class="main-card">
+  <h1>Just For You</h1>
+  <h3>You are my favorite christmas mirac💙</h3>
+
+  <div class="card-row">
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front"><img src="Assets/img/1m.png"></div>
+      <div class="flip-back"><img src="Assets/img/1.jpg"></div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front"><img src="Assets/img/1m.png"></div>
+      <div class="flip-back"><img src="Assets/img/2.jpg"></div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front"><img src="Assets/img/1m.png"></div>
+      <div class="flip-back"><img src="Assets/img/3.jpg"></div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front"><img src="Assets/img/1m.png"></div>
+      <div class="flip-back"><img src="Assets/img/4.jpg"></div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front"><img src="Assets/img/1m.png"></div>
+      <div class="flip-back"><img src="Assets/img/5.jpg"></div>
+    </div></div>
+
+    <div class="flip-card"><div class="flip-inner">
+      <div class="flip-front"><img src="Assets/img/1m.png"></div>
+      <div class="flip-back"><img src="Assets/img/6.jpg"></div>
+    </div></div>
+  </div>
+</div>
+
+<script>
+/* Snow */
+const snow = document.querySelector(".snow-stars");
+setInterval(()=>{
+  const s = document.createElement("span");
+  s.innerHTML="❄";
+  s.style.left=Math.random()*100+"vw";
+  s.style.fontSize=8+Math.random()*12+"px";
+  s.style.animationDuration=6+Math.random()*6+"s";
+  snow.appendChild(s);
+  setTimeout(()=>s.remove(),13000);
+},300);
+
+/* One by one flip */
+const cards = document.querySelectorAll(".flip-card");
+let index = 0;
+
+cards.forEach(card=>{
+  card.addEventListener("click",()=>{
+    if(card.classList.contains("active")) return;
+
+    if(cards[index] === card){
+      card.classList.add("active");
+      index++;
+
+      if(index === cards.length){
+        setTimeout(()=>{
+          window.location.href="page4.html";
+        },1500);
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Merry Christmas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(220,240,255,.9), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(200,230,255,.8), transparent 55%),
+    linear-gradient(to bottom,#ffffff,#edf6fa);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Allura',cursive;
+}
+
+/* SNOW */
+.snow-stars{position:fixed;inset:0;pointer-events:none;z-index:1}
+.snow-stars span{
+  position:absolute;
+  top:-10%;
+  color:rgba(138,201,255,.9);
+  animation:fall linear infinite;
+}
+@keyframes fall{to{transform:translateY(120vh)}}
+
+/* MESSAGE */
+.center{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  animation:float 6s ease-in-out infinite;
+}
+
+#typing{
+  font-size:30px;
+  max-width:80%;
+  color:#3a3a3a;
+}
+
+/* FLOAT */
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-14px)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="snow-stars"></div>
+
+<div class="center">
+  <div id="typing"></div>
+</div>
+
+<script>
+/* SNOW */
+const snow=document.querySelector(".snow-stars");
+function createStar(){
+  const s=document.createElement("span");
+  s.innerHTML="❄";
+  s.style.left=Math.random()*100+"vw";
+  s.style.fontSize=8+Math.random()*14+"px";
+  s.style.animationDuration=6+Math.random()*6+"s";
+  snow.appendChild(s);
+  setTimeout(()=>s.remove(),13000);
+}
+setInterval(createStar,250);
+
+/* TYPING MESSAGE */
+const text="Hey Dear! Wishing you a Merry Christmas filled with joy, love, and warmth. May this festive season bring you happiness and unforgettable moments with your loved ones.";
+let i=0;
+const t=document.getElementById("typing");
+
+(function type(){
+  if(i<text.length){
+    t.innerHTML+=text.charAt(i++);
+    setTimeout(type,50);
+  }
+})();
+</script>
+
+</body>
+</html>
