@@ -1,36 +1,36 @@
 # REACT-LAB Project's
 
-## 📌 Profile Finder
+## 📌 Ben-10
 ![BEN-10](./logos/ben10.png)
 
 BEN-10
 
-## ☁️ Weather App
+## 📌 CHAI
 ![CHAI](./logos/chai.png)
 
 CHAI
 
-## ☁️ Weather App
+## 📌 CHRISTMAS-1
 ![CHRISTMAS-1](./logos/christmas1.png)
 
 CHRISTMAS-1
 
-## ☁️ Weather App
+## 📌 CHRISTMAS-2
 ![CHRISTMAS-2](./logos/christmas2.png)
 
 CHRISTMAS-2
 
-## ☁️ Weather App
+## 📌 LAMP
 ![LAMP](./logos/lamp.png)
 
 LAMP
 
-## ☁️ Weather App
+## 📌 POKEMON
 ![POKEMON](./logos/pokemon.png)
 
 POKEMON
 
-## ☁️ Weather App
+## 📌 STRANGER-THINGS
 ![STRANGER-THINGS](./logos/stranger.png)
 
 STRANGER-THINGS
